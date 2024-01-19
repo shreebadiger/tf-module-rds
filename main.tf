@@ -36,11 +36,11 @@ resource "aws_security_group" "main" {
 }
 
 resource "aws_db_instance" "main" {
-  allocated_storage    = var.rds_allocated_storage
+  allocated_storage    = var.allocated_storage
   db_name              = "mydb"
-  engine               = var.rds_engine
-  engine_version       = var.rds_engine_version
-  instance_class       = var.rds_instance_class
+  engine               = var.engine
+  engine_version       = var.engine_version
+  instance_class       = var.instance_class
   username             = data.aws_ssm_parameter.username.value
   password             = data.aws_ssm_parameter.password.value
   parameter_group_name = aws_db_parameter_group.main.name
